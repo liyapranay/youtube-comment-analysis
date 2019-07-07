@@ -1,0 +1,72 @@
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+#grad {
+
+  background-image: linear-gradient(#c4302B 50%, #FFFFFF 50%); /* Standard syntax (must be last) */
+}
+input[type="text"]{
+background-color: #343a40;
+margin-top: 100px;
+margin-left: 400px;
+color: white;
+}
+.btn{
+background-color: #343a40;
+margin-top: 50px;
+margin-left: 620px;
+color: white;}
+
+#analysis-content{
+margin-top: 150px;
+}
+#left {
+  float: left;
+}
+
+#right {
+  float: right;
+  right: 0;
+}
+</style>
+</head>
+<body id="grad">
+<nav class="navbar navbar-dark bg-dark">
+  <span class="navbar-brand mb-0 h1">YTanalysis</span>
+</nav>
+
+<form action={{url_for('url_in')}} method="POST">
+<div class="col-lg-5">
+<input class="form-control" type="text" placeholder="Search" name="url_in"><button class="btn">Analyze</button>
+</div>
+<div class="container">
+</form>
+<div id="analysis-content">
+<br>
+<div id = left>
+<h3> Comment Feedback Analysis <h3>
+<br>
+<h5> Percentage of Positive comments <h5> 
+<div class="progress">
+  <div class="progress-bar bg-success" role="progressbar" style="width: {{percen_pos}}%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{percen_pos}}%</div>
+  </div>
+ <br>
+<h5> Percentage of Negative comments <h5> 
+<div class="progress">
+  <div class="progress-bar bg-danger" role="progressbar" style="width: {{percen_neg}}%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{percen_neg}}%</div>
+</div>
+<br>
+<h5> Total Comment = {{total}}<h5>
+</div>
+</div>
+<div style="display: flex; justify-content: right; ">
+<h3 style="margin-left: 100px">  Top 5 most used words in comments
+<img src='static/images/{{name}}.png'>
+</div>
+</div>
+
+</body>
+
+</html>
